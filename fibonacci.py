@@ -1,8 +1,7 @@
 #1 1 2 3 5 8
 
-print("want to see the fibonacci series for a number? give  try! type a number below")
-num = int(input())
-
+num = int(input("want to see the fibonacci series for a number? give  try! type a number: "))
+#num = int(input())
 v1 = v2 = 1
 fib = []
 fib.append(1)
