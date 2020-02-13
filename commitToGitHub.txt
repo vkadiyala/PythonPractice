@@ -1,0 +1,9 @@
+#adding file to git through cloud9
+
+git add     <filename>
+git add --all
+git status
+
+git commit -m ""                      <"comment if any">
+
+git push
