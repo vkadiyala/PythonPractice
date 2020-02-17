@@ -1,33 +1,40 @@
-user1 = input('Player1 Name: ')
-user2 = input('Player2 name: ')
+import getpass
+
+def valid_choices():
+    return ["1", "2", "3"]
+
+def select_choice(player_name):
+    while True:
+        choice = getpass.getpass('"'+ player_name+'": choose one and give 1 2 or 3: "1.Rock, 2.Scissor or 3.Paper":')
+        if choice in valid_choices():
+            return choice
+        else:
+            print("Invalid choice.")
 
 
-def chooseinput():
-    choice1 = input('For Player1 - choose one and give 1 2 or 3: "1.Rock, 2.Paper or 3.scissor":')
-    choice2 = input('For Player2 - choose one and give 1 2 or 3: "1.Rock, 2.Paper or 3.scissor":')
-    return(choice1,choice2)
-    #rock = 1 scissor = 2 paper = 3
+def select_choices(player1, player2):
+    choice1 = select_choice(player1)
+    choice2 = select_choice(player2)
+    return [choice1,choice2]
 
-def repeat():
-    repeat = input("Want to play again?:(y/n):")
-    return(repeat)
+def can_continue():
+    return str(input('Want to play again?:(y/n):'))
 
-gameon = True
-
-while(gameon):
-    chooseinput()
-    if choice1 = choice2:
+def calc_result(player1, choice1, player2, choice2):
+    if choice1 == choice2:
         print("its  tie!!")
-        repeat()
-        if repeat = n:
-            gameon = false
-    elif choice1 > choice2:
+    elif choice1 < choice2:
         print(f'congratulations!! {player1} has won!')
-        repeat()
-        if repeat = n:
-            gameon = false
     else:
         print(f'congratulations!! {player2} has won!')
-        repeat()
-         if repeat = n:
-            gameon = false
+
+def play():
+    player1 = input('Player1 Name: ')
+    player2 = input('Player2 name: ')
+    while True:
+        [choice1, choice2] = select_choices(player1, player2)
+        calc_result(player1, choice1, player2, choice2)
+        if can_continue().lower() != 'y':
+            break
+
+play()
